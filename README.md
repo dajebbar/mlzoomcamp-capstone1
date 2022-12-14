@@ -69,9 +69,95 @@ We see that the test loss continues to drop, while the test accuracy continues t
 **Note**:
 The ResNet50 was the wrong model.
 # Deployment of model
+ I am using Streamlit on linux ubuntu, in order to deploy the model. To deploy this model with Sreamlit, please use:
+  ```console
+  pipenv run streamlit run predict.py
+  ```
 
-# Virtual Environment/venv
+# Virtual Environment/venv 
 
+I used pipenv for the virtual environment. In order to use the same venv as me, do use: 
+```console 
+pip install pipenv
+```
+To replicate the environment, on your command line, use 
+```console
+pipenv install tensorflow streamlit efficientnet
+```  
+**Note**: I don't have a GPU installed on my laptop for this I only installed tensorflow without GPU configuration. If you have a GPU, try to configure tensorflow with NVIDIA, CUDA and cuDNN.
+
+# Docker
+
+**Note**:  
+To perform the following steps you should logon to your DockerHub Account ( `Login & Password`)
+
+I have built the model and pushed it to [dajebbar/kitchenware-model:v.1.0](https://hub.docker.com/r/dajebbar/kitchenware-model). 
+To use it just 
+```console
+docker pull dajebbar/kitchenware-model:v.1.0
+```
+
+Or in order to take the model from the docker container I built, just replace 
+```Dockerfile
+FROM python:3.9-slim 
+
+#with 
+
+FROM dajebbar/kitchenware-model:v.1.0 in the dockerfile.
+```
+
+If you choose to build a docker file locally instead, here are the steps to do so:
+1. Create a Dockerfile as such:
+```Dockerfile
+FROM python:3.9-slim
+
+ENV PYTHONUNBUFFERED=TRUE
+
+RUN pip --no-cache-dir install pipenv
+
+WORKDIR /app
+
+COPY ["Pipfile", "Pipfile.lock", "./"]
+
+RUN pipenv install --deploy --system && rm -rf /root/.cache
+
+COPY ["predict.py", "kitchenwareModel.h5", "banner.png", "./"]
+
+EXPOSE 8501
+
+ENTRYPOINT [ "streamlit", "run" ]
+
+CMD ["predict.py"]
+```
+
+This allows us to `install python, run pipenv and its dependencies, run our predict script and our model itself and deploys our model using streamlit`.
+
+Similarly, you can just use the dockerfile in this repository.
+
+2. Build the Docker Container with :
+```console
+ docker build -t kitchenware-model .
+ ```
+
+3. Run the Docker container with:
+
+```console
+Docker run --rm -name kitchenware -p 8501:8501 docker build -t kitchenware-model
+```
+
+4. tag the docker container with:
+
+```console
+
+docker tag kitchenware-model dajebbar/kitchenware-model:v.1.0
+
+```
+5. Push it Docker registry with :
+
+```console
+docker push dajebbar/kitchenware-model:v.1.0
+
+```
 # Test the project
 
 # Want to Contribute?
