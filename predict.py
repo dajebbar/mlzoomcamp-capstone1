@@ -5,13 +5,14 @@ import efficientnet.keras as efn
 from tensorflow.keras.utils import load_img, img_to_array
 from PIL import Image
 
-
+# Import the model
 model = tf.keras.models.load_model('./kitchenwareModel.h5', compile=False)
+# Diferrent class
 labels = {0: 'cup', 1: 'fork', 2: 'glass', 3: 'knife', 4: 'plate', 5: 'spoon'}
 
 def image_processing(img_path):
     """
-
+    function that process image to predict a class
     """
     img = load_img(img_path,target_size=(224,224,3))
     img = img_to_array(img)
@@ -30,6 +31,7 @@ def image_processing(img_path):
 
 def run():
     """
+    streamlit main function
     """
     banner_img = Image.open("banner.png")
     banner_img = banner_img.resize((900, 250))
@@ -55,6 +57,8 @@ def run():
     img_input = st.file_uploader("Choose your image", type=["jpg", "png"] )
 
     if img_input is not None:
+        # resize the image before display it
+        # take some times
         img = Image.open(img_input)
         img = img.resize((224, 224))
         st.image(img, use_column_width=False)
