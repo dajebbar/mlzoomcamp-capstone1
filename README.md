@@ -24,7 +24,7 @@ https://www.kaggle.com/competitions/kitchenware-classification/data
 * `images/` - the images in the JPEG format
 
 # Contents of the folder 
-
+![tree](./figures/tree.png)
 # Exploratory Data Analysis
 See the [Kitchenware_EDA.ipynb](./notebooks/Kitchenware_EDA.ipynb) for this task.
 
@@ -48,7 +48,7 @@ Not all labels are representend equaly.
 
 # Models
 See the [kaggle_zoomcamp_competition_1.ipynb](./notebooks/kaggle_zoomcamp_competition_1.ipynb)  and [kaggle_zoomcamp_competition_2.ipynb](./notebooks/kaggle_zoomcamp_competition_2.ipynb) for this task.
-## Summary of the models
+## Summary of the models ✖️: without_ | ✔️: with_
 | Model | Data Augmentation | Transfer Learning | Epochs | Losss | Accuracy % |
 |:---|:---|:---|:---|:---|:---|
 |model 1|✖️|✖️|25|0.8718|67.0266|
@@ -70,7 +70,7 @@ I tried a multitude of models first, without data augmentation or transfer learn
 ![best-model](./figures/model12.png)
 We see that the test loss continues to drop, while the test accuracy continues to increase. I stopped at 25 epochs but I think the model can give better results by increasing the number of epochs, especially since the overfitting is minimal.  
 **Note**:
-The ResNet50 was the wrong model.
+The ResNet50 was the worst model.
 # Deployment of model
  I am using Streamlit on linux ubuntu, in order to deploy the model. To deploy this model with Sreamlit, please use:
   ```console
@@ -147,7 +147,7 @@ Similarly, you can just use the dockerfile in this repository.
 3. Run the Docker container with:
 
 ```console
-Docker run --rm -name kitchenware -p 8501:8501 docker build -t kitchenware-model
+Docker run --rm --name kitchenware -p 8501:8501 docker build -t kitchenware-model
 ```
 
 4. tag the docker container with:
@@ -157,7 +157,7 @@ Docker run --rm -name kitchenware -p 8501:8501 docker build -t kitchenware-model
 docker tag kitchenware-model dajebbar/kitchenware-model:v.1.0
 
 ```
-5. Push it Docker registry with :
+5. Push it to Docker registry with :
 
 ```console
 docker push dajebbar/kitchenware-model:v.1.0
