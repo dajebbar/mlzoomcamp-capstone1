@@ -22,15 +22,33 @@ This dataset contains images of different kitchenware.
 * `sample_submission.csv` - a sample submission file in the correct format
 * `images/` - the images in the JPEG format
 
-## Contents of the folder 
+# Contents of the folder 
 
-## Exploratory Data Analysis
+# Exploratory Data Analysis
+See the [Kitchenware_EDA.ipynb](./notebooks/Kitchenware_EDA.ipynb) for this task.
 
-## Deployment of model
+### Image sizes statistics
+![sizes](./figures/sizes.png)
+The images have various and varied sizes, ranging from 39 Kilopixels to 976 Kilopixels, also more than half of the images are concentrated at 750 Kpixels. This is bad news since the tensors must imperatively have the same size.
 
-## Virtual Environment/venv
+### The width to heigth ratio (lx/ly)
+![lxy_ratio](./figures/ratio_lx_ly.png)
+Most images are vertical.
 
-## Test the project
+### By width (lx)
+![width](./figures/width.png)
+The width varies from 233 to 1000, and it is concentrated on 1000.
+### By heigth (ly)
+![heigth](./figures/ly.png)
+The heigth varies from 174 to 1000, and it is concentrated on 750.
+### Labels statistics
+![labels](./figures/labels.png)
+Not all labels are representend equaly.
+# Deployment of model
+
+# Virtual Environment/venv
+
+# Test the project
 
 # Want to Contribute?
 * Fork 🍴 the repository and send PRs.
