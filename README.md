@@ -14,6 +14,7 @@ This project uses a dataset with more than `9300` images.
 
 # Overview
 This dataset contains images of different kitchenware.
+https://www.kaggle.com/competitions/kitchenware-classification/data
 
 ### Files
 
@@ -46,6 +47,8 @@ The heigth varies from 174 to 1000, and it is concentrated on 750.
 Not all labels are representend equaly.
 
 # Models
+See the [kaggle_zoomcamp_competition_1.ipynb](./notebooks/kaggle_zoomcamp_competition_1.ipynb)  and [kaggle_zoomcamp_competition_2.ipynb](./notebooks/kaggle_zoomcamp_competition_2.ipynb) for this task.
+## Summary of the models
 | Model | Data Augmentation | Transfer Learning | Epochs | Losss | Accuracy % |
 |:---|:---|:---|:---|:---|:---|
 |model 1|✖️|✖️|25|0.8718|67.0266|
@@ -103,8 +106,10 @@ FROM python:3.9-slim
 
 #with 
 
-FROM dajebbar/kitchenware-model:v.1.0 in the dockerfile.
-```
+FROM dajebbar/kitchenware-model:v.1.0 
+```  
+in the dockerfile.
+
 
 If you choose to build a docker file locally instead, here are the steps to do so:
 1. Create a Dockerfile as such:
