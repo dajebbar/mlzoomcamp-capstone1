@@ -164,10 +164,17 @@ docker push dajebbar/kitchenware-model:v.1.0
 
 ```
 # Test the project
-The demo can be found [here](https://youtu.be/yvnH_PTsQFM).
+Here are some screen shots showing the interaction with the application, which represents the final product.
+![cmd](./figures/cmd.png)
+![cup](./figures/cup.png)
+![fork](./figures/fork.png)
+![plate](./figures/plate.png)  
+
+A quick demo of app can be found [here](https://youtu.be/yvnH_PTsQFM).
 # Want to Contribute?
 * Fork 🍴 the repository and send PRs.
 * Do ⭐ this repository if you like the content.
+
 
 **Connect with me:**
 
