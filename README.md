@@ -24,26 +24,26 @@ https://www.kaggle.com/competitions/kitchenware-classification/data
 * `images/` - the images in the JPEG format
 
 # Contents of the folder 
-![tree](./figures/tree.png)
+![tree](./figures/tree.png)  
 # Exploratory Data Analysis
 See the [Kitchenware_EDA.ipynb](./notebooks/Kitchenware_EDA.ipynb) for this task.
 
 ### Image sizes statistics
-![sizes](./figures/sizes.png)
+![sizes](./figures/sizes.png)  
 The images have various and varied sizes, ranging from 39 Kilopixels to 976 Kilopixels, also more than half of the images are concentrated at 750 Kpixels. This is bad news since the tensors must imperatively have the same size.
 
 ### The width to heigth ratio (lx/ly)
-![lxy_ratio](./figures/ratio_lx_ly.png)
+![lxy_ratio](./figures/ratio_lx_ly.png)  
 Most images are vertical.
 
 ### By width (lx)
-![width](./figures/width.png)
+![width](./figures/width.png)  
 The width varies from 233 to 1000, and it is concentrated on 1000.
 ### By heigth (ly)
-![heigth](./figures/ly.png)
+![heigth](./figures/ly.png)  
 The heigth varies from 174 to 1000, and it is concentrated on 750.
 ### Labels statistics
-![labels](./figures/labels.png)
+![labels](./figures/labels.png)  
 Not all labels are representend equaly.
 
 # Models
@@ -67,7 +67,7 @@ See the [kaggle_zoomcamp_competition_1.ipynb](./notebooks/kaggle_zoomcamp_compet
 |model 13|✔️|resnet50 ✔️|10|1.5776|39.7408|
 
 I tried a multitude of models first, without data augmentation or transfer learning, it had a bad impact and I couldn't exceed an accuracy of 72%. Then, thanks to data augmentation and transfer learning, I was able to increase accuracy. the best accuracy was obtained with model 12 with a lost function which dropped to **0.2534** thanks to transfer learning via the base model `EfficientNetB7` as shown in the graph below.
-![best-model](./figures/model12.png)
+![best-model](./figures/model12.png)  
 We see that the test loss continues to drop, while the test accuracy continues to increase. I stopped at 25 epochs but I think the model can give better results by increasing the number of epochs, especially since the overfitting is minimal.  
 **Note**:
 The ResNet50 was the worst model.
