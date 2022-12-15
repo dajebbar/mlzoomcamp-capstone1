@@ -1,6 +1,6 @@
 # DataTalksClub Kitchenware Classification Competition
 
-Using convolution neural network (cnn) with data augmentation techniques and transfer learning to classifiy kitchenware images to 6 classes:
+Using Convolution Neural Network (CNN) with data augmentation techniques and transfer learning to classifiy kitchenware images to 6 classes:
  - cups
  - glasses
  - plates
@@ -10,7 +10,7 @@ Using convolution neural network (cnn) with data augmentation techniques and tra
 
  # Dataset
 
-This project uses a dataset with more than `9300` images.
+This project uses a dataset with more than **`9300`** images.
 
 # Overview
 This dataset contains images of different kitchenware.
@@ -147,7 +147,7 @@ Similarly, you can just use the dockerfile in this repository.
 3. Run the Docker container with:
 
 ```console
-Docker run --rm --name kitchenware -p 8501:8501 docker build -t kitchenware-model
+Docker run --rm --name kitchenware -p 8501:8501 kitchenware-model
 ```
 
 4. tag the docker container with:
